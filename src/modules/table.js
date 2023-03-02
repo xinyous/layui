@@ -2164,6 +2164,9 @@ layui.define(['lay', 'laytpl', 'laypage', 'form', 'util'], function(exports){
       that.layBody.find('tr:eq('+ index +')').removeClass(ELEM_HOVER)
     }).on('click', 'tr', function(){ //单击行
       setRowEvent.call(this, 'row');
+      var index = $(this).index();
+      var tr = that.layBody.find('tr[data-index="' + index + '"]');
+      tr.addClass('layui-table-click').siblings('tr').removeClass('layui-table-click');
     }).on('dblclick', 'tr', function(){ //双击行
       setRowEvent.call(this, 'rowDouble');
     }).on('contextmenu', 'tr', function(e){ //菜单
